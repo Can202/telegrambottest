@@ -65,13 +65,20 @@ def send_kks(update: Update, context: CallbackContext):
     print("kks detected")
 def save_meme(update: Update, context: CallbackContext):
     idchat = str(update.effective_chat.id)
+    print(idchat)
     if os.path.exists("last_meme.json"):
         File = open("last_meme.json", "r")
         data = json.loads(File.read())
         File.close()
-        if isinstance(data, dict) == False:
-            if isinstance(data[idchat], dict) == False:
+        if isinstance(data, dict):
+            if idchat in data:
+                if isinstance(data[idchat], dict) == False:
+                    data[idchat] = {}
+            else:
                 data[idchat] = {}
+        else:
+            data = {}
+            data[idchat] = {}
     else:
         data = {}
         data[idchat] = {}
