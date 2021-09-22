@@ -1,5 +1,6 @@
 from telegram import Update, InlineQuery
 import telegram 
+import telegram.ext
 from telegram.ext import Updater, CommandHandler, CallbackContext, MessageHandler, Filters
 import tltoken
 import random
@@ -7,10 +8,20 @@ import os
 import json
 import appdirs
 
+
+
 lastmeme= {}
 
-def hello(update: Update, context: CallbackContext) -> None:
-    update.message.reply_text(f'Hello {update.effective_user.first_name}')
+def send_help(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text(f'Hola {update.effective_user.first_name}')
+    update.message.reply_text("""
+ayuda
+/cat       gato al azar
+/nicolas   solo para el kks
+/memes     meme al azar
+/savememe  guardar último meme que te toco
+/meme      cargar meme guardado
+    """)
 
 def send_cat(update: Update, context: CallbackContext) -> None:
     print("cat detected")
@@ -62,6 +73,7 @@ def send_nc(update: Update, context: CallbackContext):
     update.message.reply_photo("http://cdn1-www.mandatory.com/assets/uploads/2017/03/0-1-e1490268908256.jpg")
 
 def send_kks(update: Update, context: CallbackContext):
+    update.message.reply_text("El kks no responde?, @Alfonso")
     print("kks detected")
 def save_meme(update: Update, context: CallbackContext):
     idchat = str(update.effective_chat.id)
@@ -114,13 +126,14 @@ def last_meme(update: Update, context: CallbackContext):
 
 updater = Updater(tltoken.token)
 
-updater.dispatcher.add_handler(CommandHandler('hello', hello))
 updater.dispatcher.add_handler(CommandHandler('cat', send_cat))
 updater.dispatcher.add_handler(CommandHandler('memes', send_memes))
 updater.dispatcher.add_handler(CommandHandler('meme', last_meme))
 updater.dispatcher.add_handler(CommandHandler('savememe', save_meme))
 updater.dispatcher.add_handler(CommandHandler('nicolas', send_nc))
-updater.dispatcher.add_handler(MessageHandler(Filters.regex(r'kks'), send_kks))
+updater.dispatcher.add_handler(CommandHandler('help', send_help))
+updater.dispatcher.add_handler(telegram.ext.PrefixHandler('', 'kks', send_kks))
+
 
 updater.start_polling()
 updater.idle()
