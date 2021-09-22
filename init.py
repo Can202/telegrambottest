@@ -16,11 +16,13 @@ def send_help(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(f'Hola {update.effective_user.first_name}')
     update.message.reply_text("""
 ayuda
-/cat       gato al azar
-/nicolas   solo para el kks
-/memes     meme al azar
-/savememe  guardar último meme que te toco
-/meme      cargar meme guardado
+/cat        gato al azar
+/nicolas    solo para el kks
+/memes      meme al azar
+/savememe   guardar último meme que te toco
+/meme       cargar meme guardado
+
+kks         etiqueta al alfonso
     """)
 
 def send_cat(update: Update, context: CallbackContext) -> None:
@@ -132,7 +134,9 @@ updater.dispatcher.add_handler(CommandHandler('meme', last_meme))
 updater.dispatcher.add_handler(CommandHandler('savememe', save_meme))
 updater.dispatcher.add_handler(CommandHandler('nicolas', send_nc))
 updater.dispatcher.add_handler(CommandHandler('help', send_help))
-updater.dispatcher.add_handler(telegram.ext.PrefixHandler('', 'kks', send_kks))
+
+#updater.dispatcher.add_handler(telegram.ext.PrefixHandler('', 'kks', send_kks))
+updater.dispatcher.add_handler(MessageHandler(Filters.regex(r'kks'), send_kks))
 
 
 updater.start_polling()
