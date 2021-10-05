@@ -3,4 +3,4 @@ cat - Gato al azar
 memes - Un meme al azar
 savememe - Guardar último meme que te salió
 meme - Cargar meme guardado
-nicolar - Nicolas Cage
+nicolas - Nicolas Cage

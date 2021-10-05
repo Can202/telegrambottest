@@ -6,7 +6,6 @@ import tltoken
 import random
 import os
 import json
-import appdirs
 
 
 
@@ -33,6 +32,17 @@ def send_cat(update: Update, context: CallbackContext) -> None:
         "https://okdiario.com/img/2020/10/15/-como-es-el-gato-de-cabeza-plana_.jpg",
         "https://demascotas.info/wp-content/uploads/2018/10/cat-3387091_1280-1024x682.jpg",
         "https://www.tvn.cl/incoming/gato2jpg-4256835/alternates/BASE_LANDSCAPE/gato2.JPG",
+    ]
+    random_number = random.randrange(len(path))
+    update.message.reply_photo(path[random_number])
+def send_chayanne(update: Update, context: CallbackContext) -> None:
+    print("Chayanne detected")
+    path = [
+        "https://www.elprogreso.es/media/elprogreso/images/2018/06/27/2018062717385930999.jpg",
+        "https://media.metrolatam.com/2017/07/12/chayanne-1200x800.jpg",
+        "https://cdn.gente.com.ar/wp-content/uploads/2020/03/GENTE-CHAYANNE-2020.jpg",
+        "https://www.fmdos.cl/wp-content/uploads/2018/05/82863.jpg",
+        "https://img.vixdata.io/pd/jpg-large/es/sites/default/files/c/chayanne-latino-cantante.jpg",
     ]
     random_number = random.randrange(len(path))
     update.message.reply_photo(path[random_number])
@@ -135,9 +145,12 @@ updater.dispatcher.add_handler(CommandHandler('meme', last_meme))
 updater.dispatcher.add_handler(CommandHandler('savememe', save_meme))
 updater.dispatcher.add_handler(CommandHandler('nicolas', send_nc))
 updater.dispatcher.add_handler(CommandHandler('help', send_help))
+updater.dispatcher.add_handler(CommandHandler('chayanne', send_chayanne))
+
 
 #updater.dispatcher.add_handler(telegram.ext.PrefixHandler('', 'kks', send_kks))
 updater.dispatcher.add_handler(MessageHandler(Filters.regex(r'kks'), send_kks))
+updater.dispatcher.add_handler(MessageHandler(Filters.regex(r'Kks'), send_kks))
 
 
 updater.start_polling()
