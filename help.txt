@@ -4,3 +4,4 @@ memes - Un meme al azar
 savememe - Guardar último meme que te salió
 meme - Cargar meme guardado
 nicolas - Nicolas Cage
+chayanne - Chayanne

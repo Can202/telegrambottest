@@ -15,15 +15,15 @@ def send_help(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(f'Hola {update.effective_user.first_name}')
     update.message.reply_text("""
 ayuda
-/cat        gato al azar
-/nicolas    solo para el kks
-/memes      meme al azar
-/savememe   guardar último meme que te toco
-/meme       cargar meme guardado
+/cat         gato al azar
+/nicolas         solo para el kks
+/memes         meme al azar
+/savememe         guardar último meme que te toco
+/meme         cargar meme guardado
+/chayanne         cargar meme guardado
 
 kks         etiqueta al alfonso
     """)
-
 def send_cat(update: Update, context: CallbackContext) -> None:
     print("cat detected")
     path = [
@@ -83,7 +83,13 @@ def send_memes(update: Update, context: CallbackContext):
     update.message.reply_photo(path[random_number])
 def send_nc(update: Update, context: CallbackContext):
     print("nicolas cage detected")
-    update.message.reply_photo("http://cdn1-www.mandatory.com/assets/uploads/2017/03/0-1-e1490268908256.jpg")
+    path = [
+        "http://cdn1-www.mandatory.com/assets/uploads/2017/03/0-1-e1490268908256.jpg",
+        "https://raw.githubusercontent.com/Can202/telegrambottest/master/nicolas/1.jpg",
+        "https://raw.githubusercontent.com/Can202/telegrambottest/master/nicolas/2.jpg"
+    ]
+    random_number = random.randrange(len(path))
+    update.message.reply_photo(path[random_number])
 
 def send_kks(update: Update, context: CallbackContext):
     update.message.reply_text("El kks no responde?, @Alfonso")
