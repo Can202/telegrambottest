@@ -91,7 +91,7 @@ def send_nc(update: Update, context: CallbackContext):
         "http://cdn1-www.mandatory.com/assets/uploads/2017/03/0-1-e1490268908256.jpg",
         "https://raw.githubusercontent.com/Can202/telegrambottest/master/nicolas/1.jpg",
         "https://raw.githubusercontent.com/Can202/telegrambottest/master/nicolas/2.jpg",
-        "https://raw.githubusercontent.com/Can202/telegrambottest/master/cats/3.jpg"
+        "https://raw.githubusercontent.com/Can202/telegrambottest/master/nicolas/3.jpg"
     ]
     random_number = random.randrange(len(path))
     update.message.reply_photo(path[random_number])
