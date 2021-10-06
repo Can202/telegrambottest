@@ -32,6 +32,8 @@ def send_cat(update: Update, context: CallbackContext) -> None:
         "https://okdiario.com/img/2020/10/15/-como-es-el-gato-de-cabeza-plana_.jpg",
         "https://demascotas.info/wp-content/uploads/2018/10/cat-3387091_1280-1024x682.jpg",
         "https://www.tvn.cl/incoming/gato2jpg-4256835/alternates/BASE_LANDSCAPE/gato2.JPG",
+        "https://raw.githubusercontent.com/Can202/telegrambottest/master/cats/1.jpg",
+        "https://raw.githubusercontent.com/Can202/telegrambottest/master/cats/2.jpg",
     ]
     random_number = random.randrange(len(path))
     update.message.reply_photo(path[random_number])
@@ -70,7 +72,8 @@ def memes():
         "https://raw.githubusercontent.com/Can202/telegrambottest/master/memes/p%20(20).jpg",
         "https://raw.githubusercontent.com/Can202/telegrambottest/master/memes/p%20(21).jpg",
         "https://raw.githubusercontent.com/Can202/telegrambottest/master/memes/p%20(22).jpg",
-        "https://raw.githubusercontent.com/Can202/telegrambottest/master/memes/p%20(23).jpg"
+        "https://raw.githubusercontent.com/Can202/telegrambottest/master/memes/p%20(23).jpg",
+        "https://raw.githubusercontent.com/Can202/telegrambottest/master/memes/p%20(24).jpg"
     ]
     return path
 
@@ -87,7 +90,8 @@ def send_nc(update: Update, context: CallbackContext):
     path = [
         "http://cdn1-www.mandatory.com/assets/uploads/2017/03/0-1-e1490268908256.jpg",
         "https://raw.githubusercontent.com/Can202/telegrambottest/master/nicolas/1.jpg",
-        "https://raw.githubusercontent.com/Can202/telegrambottest/master/nicolas/2.jpg"
+        "https://raw.githubusercontent.com/Can202/telegrambottest/master/nicolas/2.jpg",
+        "https://raw.githubusercontent.com/Can202/telegrambottest/master/cats/3.jpg"
     ]
     random_number = random.randrange(len(path))
     update.message.reply_photo(path[random_number])
