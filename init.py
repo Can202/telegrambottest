@@ -73,7 +73,8 @@ def memes():
         "https://raw.githubusercontent.com/Can202/telegrambottest/master/memes/p%20(21).jpg",
         "https://raw.githubusercontent.com/Can202/telegrambottest/master/memes/p%20(22).jpg",
         "https://raw.githubusercontent.com/Can202/telegrambottest/master/memes/p%20(23).jpg",
-        "https://raw.githubusercontent.com/Can202/telegrambottest/master/memes/p%20(24).jpg"
+        "https://raw.githubusercontent.com/Can202/telegrambottest/master/memes/p%20(24).jpg",
+        "https://raw.githubusercontent.com/Can202/telegrambottest/master/memes/p%20(25).jpg"
     ]
     return path
 
